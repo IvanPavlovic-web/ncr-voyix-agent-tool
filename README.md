@@ -23,16 +23,7 @@ ncr-voyix-agent-tool/
 │
 ├── public/
 │   ├── favicon/
-│   │   ├── favicon.ico
-│   │   └── site.webmanifest
 │   ├── Images/
-│   │   ├── hardware/
-│   │   ├── DHL-gif.gif
-│   │   ├── fedex-gif.gif
-│   │   ├── ups.webp
-│   │   └── ot_company_logo.png
-│   └── vite.svg
-│
 ├── src/
 │   ├── components/
 │   │   ├── common/
@@ -54,6 +45,7 @@ ncr-voyix-agent-tool/
 │   │       ├── SORR/
 │   │       ├── Timezone/
 │   │       ├── Reminder/
+│   │       ├── OvernightTask/
 │   │       └── SaveData/
 │   │
 │   ├── data/
