@@ -4,19 +4,19 @@ const CARRIERS = [
   {
     label: "FedEx",
     tag: "Tracking",
-    img: "/Images/fed.webp",
+    img: "/ncr-voyix-agent-tool/Images/fed.webp",
     url: "https://www.fedex.com/fedextrack/",
   },
   {
     label: "UPS",
     tag: "Tracking",
-    img: "/Images/ups.webp",
+    img: "/ncr-voyix-agent-tool/Images/ups.webp",
     url: "https://www.ups.com/track",
   },
   {
     label: "DHL",
     tag: "Tracking",
-    img: "/Images/dhl.webp",
+    img: "/ncr-voyix-agent-tool/Images/dhl.webp",
     url: "https://www.dhl.com/global-en/home/tracking.html",
   },
 ];
