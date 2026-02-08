@@ -1,0 +1,137 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preloader-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.preloader-text-container {
+  position: relative;
+  display: inline-block;
+}
+
+.preloader-text-outline,
+.preloader-text-fill {
+  font-size: clamp(3rem, 12vw, 10rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+  white-space: nowrap;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+}
+
+.preloader-text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.25);
+  display: block;
+}
+
+.preloader-text-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  clip-path: inset(0 100% 0 0);
+  will-change: clip-path;
+}
+
+.preloader-percent {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+  letter-spacing: 0.1em;
+  min-width: 60px;
+  text-align: center;
+}
+
+.preloader-author {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.preloader-author::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+.preloader-author:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.preloader-author:hover::after {
+  width: 100%;
+}
+
+/* Subtle background grain */
+.preloader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Progress bar */
+.preloader::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  width: var(--progress, 0%);
+  transition: width 0.1s linear;
+}
+
+@media (max-width: 768px) {
+  .preloader-text-outline,
+  .preloader-text-fill {
+    font-size: clamp(2.5rem, 15vw, 4rem);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+  }
+
+  .preloader-percent {
+    font-size: 1.25rem;
+  }
+
+  .preloader-author {
+    font-size: 0.8rem;
+  }
+}

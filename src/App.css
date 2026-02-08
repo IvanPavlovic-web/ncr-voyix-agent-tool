@@ -1,0 +1,357 @@
+.main-container {
+  min-height: calc(100vh - 200px);
+  background-color: var(--bg-primary);
+}
+
+#main-content {
+  opacity: 1;
+}
+
+/* ====================== */
+/* FLOATING CONTROLS CONTAINER */
+/* ====================== */
+
+.floating-controls {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  gap: 16px; /* Horizontalno dugmad */
+  z-index: 10000;
+}
+
+/* ====================== */
+/* THEME TOGGLE BUTTON (Dark/Light Mode) */
+/* ====================== */
+
+.theme-toggle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: linear-gradient(145deg, var(--bg-tertiary), var(--bg-card));
+  color: var(--color-accent-sun);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+/* Light mode (default) */
+.theme-toggle-btn:not([data-theme-active="true"]) {
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  color: var(--color-accent-sun);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 8px 25px rgba(255, 107, 53, 0.2),
+    0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+/* Dark mode active */
+.theme-toggle-btn[data-theme-active="true"] {
+  background: linear-gradient(145deg, #0d1117, #1c2128);
+  color: var(--color-accent-moon);
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow:
+    0 8px 25px rgba(255, 215, 0, 0.3),
+    0 0 0 2px rgba(255, 215, 0, 0.1) inset,
+    0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
+.theme-toggle-btn:not([data-theme-active="true"]):hover {
+  box-shadow:
+    0 12px 35px rgba(255, 107, 53, 0.4),
+    0 0 0 3px rgba(255, 107, 53, 0.15) inset;
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Ikonica (Sunce/Mjesec) */
+.theme-icon {
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Rotacija sunca */
+.theme-toggle-btn:not([data-theme-active="true"]) .theme-icon {
+  animation: sun-rays 8s linear infinite;
+  color: var(--color-accent-sun);
+  filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.6));
+}
+
+/* Pulsiranje mjeseca */
+.theme-toggle-btn[data-theme-active="true"] .theme-icon {
+  animation: moon-glow 3s ease-in-out infinite;
+  color: var(--color-accent-moon);
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+}
+
+@keyframes sun-rays {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moon-glow {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Click ripple efekat */
+.theme-toggle-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s,
+    height 0.6s;
+}
+
+.theme-toggle-btn:active::before {
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+}
+
+/* ====================== */
+/* SNOW TOGGLE BUTTON STYLES */
+/* ====================== */
+
+.snow-toggle-btn {
+  background: linear-gradient(
+    145deg,
+    var(--color-primary-dark),
+    var(--color-primary)
+  );
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-inverse);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 8px 25px var(--color-primary-glow),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-family: "Jost", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  min-height: 60px;
+  gap: 12px;
+}
+
+/* Kada je snijeg aktivan */
+.snow-toggle-btn[data-snow-active="true"] {
+  background: linear-gradient(145deg, #6a2bb3, var(--color-primary-hover));
+  border-color: rgba(222, 228, 253, 0.4);
+  box-shadow:
+    0 8px 25px rgba(95, 36, 159, 0.6),
+    0 0 0 2px rgba(222, 228, 253, 0.2) inset,
+    0 0 20px rgba(153, 104, 255, 0.3);
+}
+
+.snow-toggle-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 30px rgba(95, 36, 159, 0.6),
+    0 0 0 2px rgba(255, 255, 255, 0.3) inset;
+}
+
+.snow-toggle-btn:active {
+  transform: translateY(-1px);
+  transition-duration: 0.1s;
+}
+
+/* Sadržaj dugmeta */
+.snow-btn-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Pahuljica ikonica */
+.snowflake-icon {
+  transition: all 0.5s ease;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+  flex-shrink: 0;
+}
+
+.snow-toggle-btn[data-snow-active="true"] .snowflake-icon {
+  animation: snowflake-spin 3s linear infinite;
+  color: var(--color-snow);
+  filter: drop-shadow(0 0 5px rgba(222, 228, 253, 0.5));
+}
+
+.snow-toggle-btn:not([data-snow-active="true"]) .snowflake-icon {
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0.9;
+}
+
+@keyframes snowflake-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tekst dugmeta */
+.snow-btn-text {
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.snow-toggle-btn[data-snow-active="true"] .snow-btn-text {
+  color: var(--color-snow);
+  text-shadow: 0 0 8px rgba(222, 228, 253, 0.4);
+}
+
+/* Uklanjamo pseudo-elemente koji prave “okvir” oko oba dugmeta */
+.theme-glow,
+.snow-status-indicator {
+  display: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Ripple efekat */
+.snow-toggle-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.snow-toggle-btn:active::after {
+  animation: snow-ripple 0.6s ease-out;
+}
+
+@keyframes snow-ripple {
+  0% {
+    width: 5px;
+    height: 5px;
+    opacity: 0.6;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}
+
+/* Responsive dizajn */
+@media (max-width: 768px) {
+  .floating-controls {
+    bottom: 20px;
+    right: 20px;
+    gap: 12px;
+  }
+
+  .theme-toggle-btn {
+    width: 55px;
+    height: 55px;
+  }
+
+  .theme-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .snow-toggle-btn {
+    padding: 10px 20px;
+    min-height: 55px;
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .snowflake-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+/* Dodajte ovo na kraj App.css fajla */
+
+/* Global Reminders Positioning */
+.floating-reminders-container {
+  position: fixed !important;
+  bottom: 30px !important;
+  left: 30px !important;
+  z-index: 10000 !important;
+}
+
+/* Adjust floating controls position if needed */
+.floating-controls {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  gap: 16px;
+  z-index: 10000;
+}
+
+/* Ensure notifications are on top */
+.notifications-overlay {
+  z-index: 100001 !important;
+}
+@media (max-width: 480px) {
+  .floating-controls {
+    gap: 10px;
+  }
+
+  .theme-toggle-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .snow-toggle-btn {
+    padding: 8px 16px;
+    min-height: 50px;
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .snow-btn-text {
+    font-size: 11px;
+  }
+}

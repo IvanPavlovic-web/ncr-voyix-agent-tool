@@ -1,0 +1,224 @@
+/* ReminderCard.css */
+
+.reminder-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeIn 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reminder-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  opacity: 0.8;
+}
+
+.reminder-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.reminder-card:hover::before {
+  opacity: 1;
+  width: 6px;
+}
+
+/* Past reminder styling */
+.reminder-card.past {
+  opacity: 0.6;
+  border-color: var(--border-color-dark);
+}
+
+.reminder-card.past::before {
+  background: linear-gradient(180deg, #666, #444);
+}
+
+/* Notified reminder */
+.reminder-card.notified {
+  background: var(--bg-tertiary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ====================== */
+/* CARD HEADER */
+/* ====================== */
+
+.reminder-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.reminder-bell {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.3s ease;
+}
+
+.reminder-bell.upcoming {
+  color: var(--color-primary);
+  animation: ring 2s ease-in-out infinite;
+}
+
+@keyframes ring {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10%,
+  30% {
+    transform: rotate(-10deg);
+  }
+  20%,
+  40% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+.reminder-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* ====================== */
+/* DETAILS */
+/* ====================== */
+
+.reminder-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 32px;
+}
+
+.reminder-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.reminder-detail svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.reminder-detail span {
+  font-weight: 500;
+}
+
+/* ====================== */
+/* STATUS BADGE */
+/* ====================== */
+
+.reminder-status {
+  padding-left: 32px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--color-primary-glow);
+  color: var(--color-primary);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ====================== */
+/* DELETE BUTTON */
+/* ====================== */
+
+.delete-reminder-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--color-error);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin-top: auto;
+}
+
+.delete-reminder-btn:hover {
+  background: var(--color-error);
+  color: var(--text-inverse);
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+.delete-reminder-btn:active {
+  transform: scale(0.98);
+}
+
+/* ====================== */
+/* RESPONSIVE */
+/* ====================== */
+
+@media (max-width: 480px) {
+  .reminder-card {
+    padding: 16px;
+  }
+
+  .reminder-title {
+    font-size: 1rem;
+  }
+
+  .reminder-details {
+    padding-left: 28px;
+    gap: 8px;
+  }
+
+  .reminder-detail {
+    font-size: 0.85rem;
+  }
+
+  .delete-reminder-btn {
+    font-size: 0.85rem;
+    padding: 8px 14px;
+  }
+}

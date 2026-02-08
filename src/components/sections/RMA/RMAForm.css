@@ -1,0 +1,82 @@
+/* RMAForm.css */
+.rma-form {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 24px;
+  align-content: start;
+}
+
+.rma-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rma-form-row label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: color 0.2s ease;
+  font-family: "Jost", sans-serif;
+}
+
+.rma-form-row input,
+.rma-form-row select,
+.rma-form-row textarea {
+  width: 100%;
+  background-color: var(--bg-card);
+  padding: 8px 10px;
+  border: 1px solid var(--border-color-dark);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.rma-form-row input:focus,
+.rma-form-row select:focus,
+.rma-form-row textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+  background-color: var(--bg-input-focus);
+}
+
+.rma-form-row:has(input:focus) label,
+.rma-form-row:has(select:focus) label,
+.rma-form-row:has(textarea:focus) label {
+  color: var(--color-primary);
+}
+
+/* Select arrow styling */
+.rma-form-row select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+
+/* Placeholder styling */
+.rma-form-row input::placeholder,
+.rma-form-row textarea::placeholder {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .rma-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .rma-form {
+    grid-template-columns: 1fr;
+  }
+}

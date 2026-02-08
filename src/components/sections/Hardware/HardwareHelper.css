@@ -1,0 +1,42 @@
+/* HardwareHelper.css */
+.hardware-section {
+  padding: 20px 42px;
+  background-color: var(--bg-primary);
+  margin: 20px 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hardware-filters {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 8px;
+}
+
+.hardware-filters .filter-btn {
+  margin-right: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-primary);
+  background-color: var(--bg-input);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.hardware-filters .filter-btn:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--text-inverse);
+}
+
+.hardware-filters .filter-btn.active {
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
+}

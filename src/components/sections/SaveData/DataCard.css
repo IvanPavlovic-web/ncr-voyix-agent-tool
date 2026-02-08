@@ -1,0 +1,56 @@
+/* DataCard.css */
+.save-data-card {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color-dark);
+  border-radius: 8px;
+  padding: 15px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+  max-width: 420px;
+  width: 100%;
+  min-height: 120px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.save-data-card:hover {
+  border-color: var(--color-primary);
+  background-color: var(--bg-card);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-content {
+  flex: 1;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.delete-btn {
+  padding: 5px 10px;
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--color-error);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.delete-btn:hover {
+  background-color: var(--color-error);
+  color: var(--text-inverse);
+  transform: scale(1.05);
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+}

@@ -1,0 +1,178 @@
+/* CommandList.css */
+.command-section {
+  padding: 20px 0px;
+  background-color: var(--bg-primary);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  border-radius: 8px;
+  border-bottom: 1px solid var(--border-color);
+  max-width: 90%;
+  font-family: "Jost", sans-serif;
+}
+
+.command-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0 24px;
+  max-width: 1600px;
+}
+
+.command-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* STILOVI KAO U RMA SEKCIJI (Copy Summary, Copy For Ticket, Copy For Teams, Clear) */
+.command-filter-btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-tertiary);
+  font-family: "Jost", sans-serif;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.command-filter-btn:hover {
+  color: var(--color-primary);
+  background-color: var(--bg-tertiary);
+}
+
+.command-filter-btn.active {
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
+  border-color: var(--color-primary);
+}
+
+.command-filter-btn.active:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--text-inverse);
+}
+
+.command-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+  padding: 0 24px;
+  max-width: 1600px;
+}
+
+.command-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  border-left: 3px solid var(--border-color-dark);
+  transition: all 0.2s ease;
+  background-color: var(--bg-input);
+  border-radius: 6px;
+}
+
+.command-item:hover {
+  border-left-color: var(--color-primary);
+  background-color: var(--bg-card);
+}
+
+.command-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.command-text {
+  color: var(--text-primary);
+  font-size: 1rem;
+  flex-grow: 1;
+  line-height: 1.5;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+}
+
+.command-copy-btn {
+  margin-left: 16px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 4px;
+  color: var(--text-inverse);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-weight: 500;
+  font-family: "Jost", sans-serif;
+}
+
+.command-copy-btn:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--text-inverse);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .command-header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .command-filters {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .command-section {
+    max-width: 100%;
+    padding: 20px 0;
+  }
+
+  .command-header {
+    padding: 0 16px;
+  }
+
+  .command-list {
+    padding: 0 16px;
+  }
+
+  .command-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .command-copy-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .command-filters {
+    gap: 8px;
+  }
+
+  .command-filter-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}

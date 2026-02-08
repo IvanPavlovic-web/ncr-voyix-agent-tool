@@ -1,0 +1,183 @@
+/* TicketForm.css */
+.form-flex-container {
+  display: flex;
+  gap: 32px;
+  padding: 0px 24px 48px;
+  border-bottom: 1px solid var(--border-color);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.form-left-column {
+  flex: 1 1 55%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  align-content: start;
+}
+
+.form-right-column {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.form-right-column label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.form-right-column textarea {
+  width: 100%;
+  flex: 1;
+  min-height: 500px;
+  padding: 12px;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border: 1px solid var(--border-color-dark);
+  border-radius: 6px;
+  resize: vertical;
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.form-right-column textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+  background-color: var(--bg-input-focus);
+}
+
+.form-left-column .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Special handling for full-width fields */
+.form-left-column .form-row:has(#caller-name-${props.tabId}),
+.form-left-column .form-row:has([name="callerName"]),
+.form-left-column .form-row:has([name="callerPhone"]),
+.form-left-column .form-row:has([name="callerEmail"]),
+.form-left-column .form-row:has([name="summary"]),
+.form-left-column .form-row:has([name="stepsPerformed"]) {
+  grid-column: 1 / -1;
+}
+
+.form-left-column .form-row label {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: color 0.2s ease;
+}
+
+.form-left-column .form-row input[type="text"],
+.form-left-column .form-row input[type="email"],
+.form-left-column .form-row input[type="date"],
+.form-left-column .form-row select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color-dark);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.form-left-column .form-row input:focus,
+.form-left-column .form-row select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+  background-color: var(--bg-input-focus);
+}
+
+.form-left-column .form-row:has(input:focus) label,
+.form-left-column .form-row:has(select:focus) label {
+  color: var(--color-primary);
+}
+
+.form-right-column:has(textarea:focus) label {
+  color: var(--color-primary);
+}
+
+/* Placeholder styling */
+.form-left-column .form-row input::placeholder,
+.form-right-column textarea::placeholder {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Date input styling */
+.form-left-column
+  .form-row
+  input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.6);
+  cursor: pointer;
+}
+
+[data-theme="dark"]
+  .form-left-column
+  .form-row
+  input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* Select arrow styling */
+.form-left-column .form-row select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+
+.buttons {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 10px;
+  padding: 0 24px;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .form-left-column {
+    grid-template-columns: 1fr;
+  }
+
+  .form-left-column .form-row:has([name="callerName"]),
+  .form-left-column .form-row:has([name="callerPhone"]),
+  .form-left-column .form-row:has([name="callerEmail"]),
+  .form-left-column .form-row:has([name="summary"]) {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .form-flex-container {
+    flex-direction: column;
+  }
+
+  .form-left-column,
+  .form-right-column {
+    flex: 1 1 100%;
+  }
+
+  .form-right-column textarea {
+    min-height: 300px;
+  }
+}

@@ -1,0 +1,18 @@
+/* ScrollBanner.css */
+.scroll-banner {
+  height: 48px;
+  background-color: var(--color-primary-dark);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  color: var(--text-inverse);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.scroll-text {
+  white-space: nowrap;
+  display: inline-block;
+  animation: scroll-left 60s linear infinite;
+}

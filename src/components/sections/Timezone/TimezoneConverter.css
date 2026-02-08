@@ -1,0 +1,560 @@
+/* ===============================
+   ULTRA-PREMIUM TIMEZONE CONVERTER
+   World-Class Design System
+================================ */
+
+.timezone-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0;
+  position: relative;
+}
+
+/* ===============================
+   MAIN CONTAINER - GLASSMORPHISM
+================================ */
+
+.timezone-form {
+  padding: 64px 72px 80px;
+  background: var(--bg-card);
+  border-radius: 32px;
+  border: 1px solid var(--border-color-light);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle gradient overlay */
+.timezone-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: radial-gradient(
+    circle at top,
+    var(--color-primary-light),
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ===============================
+   HEADER WITH GRADIENT TEXT
+================================ */
+
+.tmz-section-header {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+/* Animated underline */
+.tmz-section-header::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), transparent);
+  border-radius: 999px;
+}
+
+/* ===============================
+   INPUT GRID LAYOUT
+================================ */
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.input-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Full width for multiselect */
+.input-full {
+  grid-column: 1 / -1;
+}
+
+/* ===============================
+   PREMIUM LABELS
+================================ */
+
+label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  transition: color 0.3s ease;
+  margin-bottom: 2px;
+}
+
+label::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-top: 0.35em;
+}
+
+/* ===============================
+   NEXT-GEN INPUTS
+================================ */
+
+.tmz-input {
+  width: 100%;
+  padding: 18px 22px;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  height: 58px;
+  box-sizing: border-box;
+}
+
+.tmz-input::placeholder {
+  color: var(--text-light);
+}
+
+.tmz-input:hover {
+  border-color: var(--border-color-dark);
+  background: var(--bg-input-focus);
+}
+
+.tmz-input:focus {
+  outline: none;
+  background: var(--bg-input-focus);
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 4px var(--color-primary-light),
+    var(--shadow-primary);
+  transform: translateY(-2px);
+}
+
+/* Datetime input specific */
+.tmz-input[type="datetime-local"] {
+  display: flex;
+  align-items: center;
+}
+
+.tmz-input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  opacity: 0.7;
+}
+
+.tmz-input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+  background: var(--color-primary-light);
+  opacity: 1;
+}
+
+/* Dark mode specific - invert the calendar icon */
+[data-theme="dark"]
+  .tmz-input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* ===============================
+   ULTRA-PREMIUM MULTISELECT
+================================ */
+
+.tmz-multiselect {
+  min-height: 280px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 8px;
+  border-radius: 18px;
+  background: var(--bg-input);
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+.tmz-multiselect:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 4px var(--color-primary-light),
+    var(--shadow-primary);
+}
+
+.tmz-multiselect option {
+  padding: 16px 18px;
+  margin-bottom: 6px;
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.tmz-multiselect option:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-color-light);
+  transform: translateX(4px);
+}
+
+.tmz-multiselect option:checked {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  color: var(--text-inverse);
+  font-weight: 600;
+  border-color: transparent;
+  box-shadow: 0 4px 12px var(--color-primary-glow);
+}
+
+/* Premium scrollbar */
+.tmz-multiselect::-webkit-scrollbar {
+  width: 12px;
+}
+
+.tmz-multiselect::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 999px;
+  margin: 8px 0;
+}
+
+.tmz-multiselect::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  border-radius: 999px;
+  border: 2px solid var(--scrollbar-track);
+  transition: all 0.3s ease;
+}
+
+.tmz-multiselect::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--color-primary-hover),
+    var(--color-primary)
+  );
+  box-shadow: 0 0 12px var(--color-primary-glow);
+}
+
+/* ===============================
+   HERO CTA BUTTON
+================================ */
+
+.convert-container {
+  margin-top: 56px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.control-btn {
+  padding: 20px 80px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  color: var(--text-inverse);
+
+  box-shadow:
+    0 8px 24px var(--color-primary-glow),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Shine effect */
+.control-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.control-btn:hover::before {
+  left: 100%;
+}
+
+.control-btn:hover:not(:disabled) {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 16px 40px var(--color-primary-glow),
+    0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:active:not(:disabled) {
+  transform: translateY(-2px) scale(0.98);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===============================
+   RESULTS SECTION - CARD GRID
+================================ */
+
+#converted-times {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.tmz-output {
+  padding: 24px 28px;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-color-light);
+  border-radius: 20px;
+  margin: 0;
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect */
+.tmz-output::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+
+.tmz-output:hover {
+  transform: translateX(4px);
+  border-color: var(--border-color-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.tmz-output:hover::before {
+  transform: scaleY(1);
+}
+
+.tmz-output strong {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+/* Error state */
+.tmz-output-error {
+  background: linear-gradient(
+    135deg,
+    rgba(244, 67, 54, 0.1),
+    rgba(244, 67, 54, 0.05)
+  );
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tmz-output {
+  animation: slideInUp 0.4s ease backwards;
+}
+
+.tmz-output:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.tmz-output:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.tmz-output:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.tmz-output:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.tmz-output:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.tmz-output:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 968px) {
+  .input-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  #converted-times {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .timezone-form {
+    padding: 40px 28px 56px;
+    margin: 32px 16px;
+    border-radius: 24px;
+  }
+
+  .tmz-section-header {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+
+  .input-grid {
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .control-btn {
+    width: 100%;
+    padding: 18px 40px;
+  }
+
+  .tmz-multiselect {
+    min-height: 220px;
+  }
+
+  #converted-times {
+    margin-top: 48px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timezone-form {
+    padding: 32px 20px 48px;
+  }
+
+  .tmz-section-header {
+    font-size: 1.75rem;
+  }
+
+  .tmz-input {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+
+  .tmz-output {
+    padding: 20px 22px;
+  }
+}
+
+/* ===============================
+   ACCESSIBILITY ENHANCEMENTS
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.tmz-input:focus-visible,
+.tmz-multiselect:focus-visible,
+.control-btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}

@@ -1,0 +1,89 @@
+/* Tabs.css */
+.tabs-container {
+  display: flex;
+  background: var(--bg-primary);
+  padding: 12px 10px 0 10px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab {
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--text-tertiary);
+  border-left: 1px solid var(--text-tertiary);
+  border-right: 1px solid var(--text-tertiary);
+  border-bottom: none;
+  margin-right: 5px;
+  padding: 6px 12px;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  background-color: transparent;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.tab:hover {
+  background-color: rgba(95, 36, 159, 0.4);
+  color: var(--text-inverse);
+}
+
+.tab.active {
+  background: var(--color-primary-dark);
+  color: var(--text-inverse);
+  border-top: 1px solid var(--text-tertiary);
+  border-left: 1px solid var(--text-tertiary);
+  border-right: 1px solid var(--text-tertiary);
+  border-bottom: none;
+  font-weight: bold;
+}
+
+.tab .close-btn {
+  background: var(--text-light);
+  border-radius: 50%;
+  color: var(--text-inverse);
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.tab .close-btn:hover {
+  background: var(--color-error);
+  transform: rotate(90deg);
+}
+
+.create-tab-btn {
+  padding: 6px 16px;
+  border: 1px solid var(--color-primary);
+  background-color: var(--bg-input);
+  color: var(--color-primary);
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.create-tab-btn:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--text-inverse);
+}
+
+.tab-contents {
+  background: var(--bg-primary);
+  padding: 20px;
+}
+
+.tab-content {
+  display: none;
+}

@@ -1,0 +1,32 @@
+/* CopyNotification.css */
+.copy-notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-primary-dark);
+  color: var(--text-inverse);
+  padding: 12px 24px;
+  border-radius: 4px;
+  box-shadow: var(--shadow-md);
+  z-index: 1001;
+  animation:
+    slideIn 0.3s ease-out,
+    fadeOut 0.3s ease-in 2s forwards;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.copy-notification::before {
+  content: "✓";
+  font-weight: bold;
+}
+
+.copy-notification.error {
+  background-color: var(--color-error);
+}
+
+.copy-notification.error::before {
+  content: "✗";
+}

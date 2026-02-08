@@ -1,0 +1,66 @@
+/* Header.css */
+
+/* Umjesto logo slike, ovo je tekst logo */
+.header-text-logo {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--header-text);
+  letter-spacing: 1px;
+}
+
+/* Originalni CSS */
+.header-container {
+  background: var(--header-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  user-select: none;
+  border-bottom: 1px solid var(--header-border);
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: var(--header-text);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: color 0.3s;
+}
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-btn:hover {
+  color: var(--color-primary);
+}
+
+.nav-btn:hover::after {
+  width: 100%;
+}
+
+.nav-btn.active {
+  color: var(--color-primary);
+}
+
+.nav-btn.active::after {
+  width: 100%;
+}

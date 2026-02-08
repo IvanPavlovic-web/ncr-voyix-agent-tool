@@ -1,0 +1,164 @@
+/* themes.css */
+
+/* =====================================================
+   CENTRAL THEME SYSTEM - Dark & Light Mode Variables
+   ===================================================== */
+
+/* DEFAULT THEME (LIGHT MODE) */
+:root {
+  /* Primary Colors */
+  --color-primary: #9968ff;
+  --color-primary-hover: #a876ff;
+  --color-primary-dark: #5f249f;
+  --color-primary-darker: #491590;
+  --color-primary-light: rgba(153, 104, 255, 0.1);
+  --color-primary-glow: rgba(153, 104, 255, 0.3);
+
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e8e8e8;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafafa;
+  --bg-input: #f0f0f0;
+  --bg-input-focus: #ffffff;
+  --bg-modal: rgba(0, 0, 0, 0.7);
+
+  /* Text Colors */
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  --text-muted: #999999;
+  --text-light: #aaaaaa;
+  --text-inverse: #ffffff;
+
+  /* Borders */
+  --border-color: #dddddd;
+  --border-color-light: #eeeeee;
+  --border-color-dark: #cccccc;
+  --border-color-focus: var(--color-primary);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 12px 35px rgba(0, 0, 0, 0.2);
+  --shadow-primary: 0 4px 15px rgba(153, 104, 255, 0.3);
+
+  /* Status Colors */
+  --color-success: #4caf50;
+  --color-warning: #ffc107;
+  --color-error: #f44336;
+  --color-info: #17a2b8;
+
+  /* Accent Colors */
+  --color-accent-sun: #ff6b35;
+  --color-accent-moon: #ffd700;
+  --color-snow: #dee4fd;
+
+  /* Special Elements */
+  --scrollbar-track: #f0f0f0;
+  --scrollbar-thumb: var(--color-primary);
+  --scrollbar-thumb-hover: var(--color-primary-dark);
+
+  /* Header */
+  --header-bg: #ffffff;
+  --header-text: #222222;
+  --header-border: #eeeeee;
+
+  /* Footer */
+  --footer-bg: #f8f8f8;
+  --footer-text: #333333;
+  --footer-text-secondary: #666666;
+  --footer-border: #eeeeee;
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+  /* Primary Colors - Same across themes */
+  --color-primary: #9968ff;
+  --color-primary-hover: #a876ff;
+  --color-primary-dark: #5f249f;
+  --color-primary-darker: #491590;
+  --color-primary-light: rgba(153, 104, 255, 0.1);
+  --color-primary-glow: rgba(153, 104, 255, 0.3);
+
+  /* Backgrounds */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #111111;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #222222;
+  --bg-input: #1a1a1a;
+  --bg-input-focus: #222222;
+  --bg-modal: rgba(0, 0, 0, 0.85);
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #cccccc;
+  --text-muted: #999999;
+  --text-light: #888888;
+  --text-inverse: #000000;
+
+  /* Borders */
+  --border-color: #333333;
+  --border-color-light: #222222;
+  --border-color-dark: #444444;
+  --border-color-focus: var(--color-primary);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 12px 35px rgba(0, 0, 0, 0.7);
+  --shadow-primary: 0 4px 15px rgba(153, 104, 255, 0.4);
+
+  /* Status Colors */
+  --color-success: #4caf50;
+  --color-warning: #ffc107;
+  --color-error: #f44336;
+  --color-info: #17a2b8;
+
+  /* Accent Colors */
+  --color-accent-sun: #ff6b35;
+  --color-accent-moon: #ffd700;
+  --color-snow: #dee4fd;
+
+  /* Special Elements */
+  --scrollbar-track: #1a1a1a;
+  --scrollbar-thumb: var(--color-primary);
+  --scrollbar-thumb-hover: var(--color-primary-dark);
+
+  /* Header */
+  --header-bg: #000000;
+  --header-text: #e0e0e0;
+  --header-border: #222222;
+
+  /* Footer */
+  --footer-bg: #000000;
+  --footer-text: #cccccc;
+  --footer-text-secondary: #666666;
+  --footer-border: #222222;
+}
+
+/* =====================================================
+   SMOOTH TRANSITIONS FOR THEME SWITCHING
+   ===================================================== */
+
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Exclude elements that shouldn't transition */
+.snowflake-icon,
+.theme-icon,
+button:active,
+input:focus,
+textarea:focus,
+select:focus {
+  transition: all 0.3s ease !important;
+}
