@@ -2,6 +2,8 @@
 
 ![Site Screenshot](446shots_so.png)
 
+![Video Preview](prev.gif)
+
 ![Video Preview](ezgif-319d48b572c9d66a.gif)
 
 React + Vite application for NCR Voyix support agents.
