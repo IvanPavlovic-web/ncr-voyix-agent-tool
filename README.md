@@ -1,6 +1,7 @@
 # NCR Voyix Agent Tool
 
 ![Site Screenshot](446shots_so.png)
+
 ![Video Preview](ezgif-319d48b572c9d66a.gif)
 
 React + Vite application for NCR Voyix support agents.
